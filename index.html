@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مزرعة الذهب | @p1xtz</title>
+    <style>
+        body { text-align: center; background: #f0f2f5; font-family: sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; justify-content: center; height: 100vh; }
+        .card { background: white; max-width: 380px; margin: auto; padding: 30px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 2px solid #f1c40f; }
+        .lvl-2 { filter: drop-shadow(0 0 10px gold) sepia(1) saturate(5); }
+        #chicken { font-size: 100px; cursor: pointer; transition: 0.1s; display: inline-block; user-select: none; }
+        #chicken:active { transform: scale(0.8); }
+        .score { font-size: 50px; color: #f39c12; font-weight: bold; }
+        .dev { margin-top: 20px; padding-top: 15px; border-top: 1px dashed #ccc; }
+        .dev a { color: #e1306c; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2 style="margin:0;">مزرعة الذهب 💰</h2>
+        <div class="score" id="gold">0</div>
+        <div id="chicken" onclick="hit()">🐔</div>
+        <p id="msg">المستوى 1: اجمع 20 ذهبة</p>
+        <div class="dev">المطور: <a href="https://instagram.com/p1xtz">@p1xtz</a></div>
+    </div>
+
+    <script>
+        let count = 0;
+        function hit() {
+            count++;
+            document.getElementById('gold').innerText = count;
+            let c = document.getElementById('chicken');
+            let m = document.getElementById('msg');
+            
+            if(count >= 20 && count < 50) {
+                c.className = 'lvl-2';
+                m.innerText = "كفو! المستوى 2: دجاجة ذهبية ✨";
+            } else if(count >= 50) {
+                c.innerHTML = '🖕';
+                c.className = '';
+                m.innerText = "المستوى 3: المفاجأة! 😂";
+                m.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
